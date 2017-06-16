@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route } from 'react-router';
-import Navbar from 'containers/Navbar';
+import NavbarContainer from 'containers/NavbarContainer';
 
 const App = () => {
   return (
     <div>
-      <Route path={'*'} component={Navbar} />
+      <Route path={'*'} component={NavbarContainer} />
     </div>
   );
 };
