@@ -6,7 +6,7 @@ import NavRight from './NavRight';
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-toggleable-md navbar-light bg-faded container-fluid">
+    <nav className="navbar navbar-toggleable-md navbar-light bg-faded fixed-top">
       <Hamburger />
       <Link to="/" className="navbar-brand">Movie App</Link>
 
