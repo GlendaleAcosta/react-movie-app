@@ -14,7 +14,8 @@ module.exports = {
         "react/jsx-filename-extension": 0,
         "arrow-parens": 0,
         "no-param-reassign": 0,
-        "arrow-body-style": 0
+        "arrow-body-style": 0,
+        "jsx-a11y/href-no-hash": 0
     },
     "env": {
         "browser": true,
