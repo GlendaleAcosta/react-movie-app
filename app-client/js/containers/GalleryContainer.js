@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Gallery from 'components/Gallery/Gallery';
 
 const styles = {
   backgroundColor: 'lightblue',
@@ -14,7 +15,7 @@ class GalleryContainer extends Component {
   render() {
     return (
       <div className="push-sm-2 col-sm-10" style={styles}>
-        <h1>GalleryContainer</h1>
+        <Gallery />
       </div>
     );
   }
