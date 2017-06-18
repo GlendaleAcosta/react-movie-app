@@ -1,27 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MovieCard from './MovieCard';
 
 const containerStyles = {
   display: 'flex',
+  paddingRight: '8px',
+  paddingLeft: '10px',
 };
 
-const Gallery = () => {
-  return (
-    <div>
-      <p>Showing results for popular movies...</p>
-      <div className="row" style={containerStyles}>
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
+class Gallery extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.renderMovies = this.renderMovies.bind(this);
+  }
 
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
+  renderMovies() {
+    const gallery = this.props.movieReducer.movieGallery;
+    if (gallery !== null) {
+      const movies = gallery.results;
+      return movies.map((movie, index) => {
+        return (
+          <MovieCard key={movie.id} index={index} {...movie} />
+        );
+      });
+    }
+    return null;
+  }
+
+  render() {
+    return (
+      <div>
+        <p>Showing results for popular movies...</p>
+        <div className="row" style={containerStyles}>
+          {this.renderMovies()}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+}
+
+Gallery.propTypes = {
+  movieReducer: PropTypes.object.isRequired,
 };
 
 export default Gallery;

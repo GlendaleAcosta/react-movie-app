@@ -2,14 +2,18 @@
   "name": "react-movie-app",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
+    "axios": "^0.16.2",
     "body-parser": "^1.17.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.2.0"
   },
   "main": "node server/server.js",
   "devDependencies": {
@@ -55,7 +59,7 @@
   },
   "scripts": {
     "dev:client": "node scripts/start.js",
-    "dev:server": "nodemon app-server/server.js",
+    "dev:server": "nodemon --watch app-server app-server/server.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },

@@ -13,17 +13,10 @@ const app = express();
 // app.use(compression())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(express.static('../client'));
+app.use(express.static(path.join(__dirname, '../app-client')));
 app.use(express.static(path.join(__dirname, '../build')));
-// app.use("/", expressStaticGzip("/my/rootFolder/"))
-// app.get('*.js', function (req, res, next) {
-//   req.url = req.url + '.gz';
-//   res.set('Content-Encoding', 'gzip');
-//   next();
-// });
 
 // Controllers
-
 
 // Routes
 app.get('/*', (req, res) => {
