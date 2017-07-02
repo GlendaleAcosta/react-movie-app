@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Gallery from 'components/Gallery/Gallery';
 import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
 import { getMovies } from 'actions/movieGalleryActions';
 
 const styles = {
   backgroundColor: 'lightblue',
-  height: '2000px',
 };
 
 class GalleryContainer extends Component {

@@ -4,6 +4,7 @@ const style = {
   height: 'calc(100vh - 56px)',
   backgroundColor: 'lightpink',
   position: 'fixed',
+  zIndex: '10',
 };
 
 const Sidebar = () => {
