@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { getMovies } from 'actions/movieGalleryActions';
 
 const styles = {
-  backgroundColor: '#464D5D',
+  backgroundColor: '#2b3954',
 };
 
 class GalleryContainer extends Component {

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 const iconStyle ={
-  color: '#fff',
+  color: '#5570a2',
   marginRight: '10px',
-  fontSize: '14px',
+  fontSize: '15px',
 };
 
 class Sidebar extends Component {

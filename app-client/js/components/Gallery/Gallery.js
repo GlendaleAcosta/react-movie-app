@@ -11,6 +11,7 @@ const resultFeedback = {
   marginTop: '20px',
   marginBottom: '10px',
   marginLeft: '5px',
+  color: '#fff',
 };
 
 class Gallery extends Component {
