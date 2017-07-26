@@ -1,16 +1,28 @@
 import React from 'react';
 
-const style = {
-  height: 'calc(100vh - 56px)',
-  backgroundColor: 'lightpink',
-  position: 'fixed',
-  zIndex: '10',
-};
-
 const Sidebar = () => {
   return (
-    <div className="col-sm-2" style={style}>
-      Sidebar
+    <div className="col-sm-2 sidebar">
+      <div className="list-group">
+        <button
+          type="button"
+          className="list-group-item list-group-item-action active dropdown-toggle"
+        >
+          Filters
+        </button>
+        <button type="button" className="list-group-item list-group-item-action">
+          Dapibus ac facilisis in
+        </button>
+        <button type="button" className="list-group-item list-group-item-action">
+          Morbi leo risus
+        </button>
+        <button type="button" className="list-group-item list-group-item-action">
+          Porta ac consectetur ac
+        </button>
+        <button type="button" className="list-group-item list-group-item-action" disabled>
+          Vestibulum at eros
+        </button>
+      </div>
     </div>
   );
 };

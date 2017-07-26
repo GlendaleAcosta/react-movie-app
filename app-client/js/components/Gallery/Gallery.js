@@ -7,6 +7,11 @@ const containerStyles = {
   paddingRight: '8px',
   paddingLeft: '10px',
 };
+const resultFeedback = {
+  marginTop: '20px',
+  marginBottom: '10px',
+  marginLeft: '5px',
+};
 
 class Gallery extends Component {
   constructor(props) {
@@ -31,7 +36,7 @@ class Gallery extends Component {
   render() {
     return (
       <div>
-        <p>Showing results for popular movies...</p>
+        <p style={resultFeedback}>Showing results for popular movies...</p>
         <div className="row" style={containerStyles}>
           {this.renderMovies()}
         </div>

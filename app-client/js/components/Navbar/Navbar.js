@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-toggleable-md navbar-light bg-faded fixed-top">
       <Hamburger />
-      <Link to="/" className="navbar-brand">Movie App</Link>
+      <Link to="/" className="navbar-brand text-white">Movie App</Link>
 
       <div className="collapse navbar-collapse row">
         <SearchBar />

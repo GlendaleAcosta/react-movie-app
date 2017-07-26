@@ -1,0 +1,27 @@
+.sidebar {
+  height: calc(100vh - 56px);
+  background-color: $P-DARKBLUE;
+  position: fixed;
+  z-index: 10;
+}
+
+.sidebar {
+  padding-top: 45px;
+  border-radius: 0;
+}
+.sidebar .list-group {
+  .active {
+    background-color: $P-DARKBLUE;
+    border-top: 1px solid $P-PINK;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid $P-PINK;
+  }
+  font-size: 12px;
+  .list-group-item {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-color: $P-DARKBLUE;
+    color: #fff;
+  }
+}
