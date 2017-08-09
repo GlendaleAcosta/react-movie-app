@@ -21,7 +21,7 @@ class NavbarContainer extends Component {
 
   render() {
     return (
-      <Navbar />
+      <Navbar {...this.props} />
     );
   }
 }

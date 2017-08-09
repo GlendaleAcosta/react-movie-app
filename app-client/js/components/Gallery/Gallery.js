@@ -22,7 +22,8 @@ class Gallery extends Component {
   }
 
   renderMovies() {
-    const gallery = this.props.movieReducer.movieGallery;
+    const gallery = this.props.movieReducer.searchResults ||
+    this.props.movieReducer.movieGallery;
     if (gallery !== null) {
       const movies = gallery.results;
       return movies.map((movie, index) => {
