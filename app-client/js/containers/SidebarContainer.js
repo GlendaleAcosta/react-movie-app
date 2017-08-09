@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Sidebar from 'components/Sidebar/Sidebar';
+import { connect } from 'react-redux';
 
 class SidebarContainer extends Component {
   constructor(props) {
@@ -8,9 +9,16 @@ class SidebarContainer extends Component {
   }
   render() {
     return (
-      <Sidebar />
+      <Sidebar {...this.props} />
     );
   }
 }
-
-export default SidebarContainer;
+function mapStateToProps(state) {
+  return {
+    sidebarReducer: state.sidebarReducer,
+  };
+}
+// function matchDispatchToProps(dispatch) {
+//   return bindActionCreators({ getMovies });
+// }
+export default connect(mapStateToProps)(SidebarContainer);

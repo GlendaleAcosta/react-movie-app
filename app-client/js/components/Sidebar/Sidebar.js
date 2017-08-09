@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import { getGenres } from 'actions/sidebarActions';
+import { getMoviesByGenre } from 'actions/movieGalleryActions';
 
 const iconStyle ={
   color: '#5570a2',
@@ -9,6 +12,9 @@ const iconStyle ={
 class Sidebar extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      showGenres: false,
+    }
   }
 
   showFilters = () => {
@@ -16,7 +22,39 @@ class Sidebar extends Component {
   }
 
   showGenres = () => {
-    console.log('Hello');
+    if (!this.props.sidebarReducer.genres) {
+      this.props.dispatch(getGenres());
+    }
+    this.setState({
+      showGenres: !this.state.showGenres,
+    })
+  }
+
+  filterGenres(genre) {
+    console.log(genre);
+    this.props.dispatch(getMoviesByGenre(genre.id))
+  }
+
+  renderGenres = () => {
+    const that = this;
+    const genres = this.props.sidebarReducer.genres || null;
+    if (this.props.sidebarReducer.genres && this.state.showGenres) {
+      return this.props.sidebarReducer.genres.map((genre) => {
+        return (
+          <li
+            onClick={() => {
+              this.filterGenres(genre)
+            }}
+            key={genre.id}
+            className="text-white"
+          >
+            {genre.name}
+          </li>
+        )
+      });
+    } else {
+      return null;
+    }
   }
 
   render() {
@@ -49,6 +87,7 @@ class Sidebar extends Component {
             Genres
             <span className="dropdown-toggle" style={{marginLeft: 'auto'}} />
           </button>
+          {this.renderGenres()}
         </div>
 
         <div className="list-group ">

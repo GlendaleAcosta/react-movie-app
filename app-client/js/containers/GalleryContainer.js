@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Gallery from 'components/Gallery/Gallery';
 import { connect } from 'react-redux';
-import { getMovies, getSearchResults, getFilteredMovies } from 'actions/movieGalleryActions';
+import { getSearchResults, getFilteredMovies } from 'actions/movieGalleryActions';
 
 const styles = {
   backgroundColor: '#2b3954',
@@ -11,7 +11,6 @@ const styles = {
 class GalleryContainer extends Component {
   constructor(props) {
     super(props);
-    console.log(props.match.params);
     if (props.location.pathname === '/' && !props.match.params.query) {
       this.props.dispatch(getFilteredMovies('popular'));
     } else if (props.match.params.query) {
