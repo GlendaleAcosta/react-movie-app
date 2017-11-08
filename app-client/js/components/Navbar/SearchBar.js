@@ -35,6 +35,7 @@ class SearchBar extends Component {
     e.preventDefault();
     this.props.history.push(`/movies/search/${this.state.movieQuery}`);
     this.props.dispatch(getSearchResults(this.state.movieQuery));
+    this.state.movieQuery = '';
   }
 
   render() {

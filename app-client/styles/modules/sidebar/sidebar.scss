@@ -15,32 +15,59 @@
 .sidebar .list-group {
   .active {
     background-color: $P-DARKBLUE;
-    // border-top: 1px solid $P-PINK;
-    // border-left: 0;
-    // border-right: 0;
-    // border-bottom: 1px solid $P-PINK;
   }
   font-size: 13px;
-  .list-group-item {
-    padding-top: 6px;
-    padding-bottom: 6px;
-    background-color: $P-DARKBLUE;
+}
+.parent-group-item {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  background-color: $P-DARKBLUE;
+  color: #fff;
+  outline: none !important;
+  border-top: 1px solid $P-PINK !important;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid $P-PINK !important;
+  border-radius: 0 !important;
+  padding-left: 5px;
+  &:first-child {
+    border-top: 0 !important;
+  }
+  &:last-child {
+    border-bottom: 0 !important;
+  }
+  &:hover {
+    cursor: pointer;
+    background: #2f3946;
     color: #fff;
-    outline: none;
-    border-top: 1px solid $P-PINK;
-    border-left: 0;
-    border-right: 0;
-    border-bottom: 1px solid $P-PINK;
-    border-radius: 0;
-    padding-left: 5px;
-    &:first-child {
-      border-top: 0;
-    }
-    &:last-child {
-      border-bottom: 0;
-    }
-    &:hover {
-      cursor: pointer;
-    }
+  }
+
+  &:active {
+    background: #2f3946 !important;
+    color: #fff !important;
+  }
+  &:focus {
+    background: #2f3946 !important;
+    color: #fff !important;
   }
 }
+
+.child-item {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  cursor: pointer;
+  background: $P-DARKBLUE;
+  border: 0;
+
+  p {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 12px;
+  }
+
+  &:hover {
+    background: #2f3946 !important;
+  }
+}
+
+

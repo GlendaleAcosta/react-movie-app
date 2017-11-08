@@ -119,3 +119,37 @@ export function getSearchResults(movie) {
     };
   });
 }
+
+export function getMoviesByFilter(filter) {
+  const hs = {
+    'Now Playing': 'now_playing',
+    Popular: 'popular',
+    'Top Rated': 'top_rated',
+    Upcoming: 'upcoming',
+  };
+
+  return axios({
+    method: 'GET',
+    url: `https://api.themoviedb.org/3/movie/${hs[filter]}?`,
+    params: {
+      api_key: process.env.TMDB_KEY,
+      language: 'en-US',
+      page: 1,
+      include_adult: false,
+    },
+  })
+  .then((response) => {
+    console.log(response.data);
+    return {
+      type: 'GET_MOVIES',
+      payload: response.data,
+    };
+  })
+  .catch((error) => {
+    console.log(error);
+    return {
+      type: 'ERROR',
+      payload: error,
+    };
+  });
+}
