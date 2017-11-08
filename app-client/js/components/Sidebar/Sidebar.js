@@ -12,7 +12,6 @@ const iconStyle ={
 class Sidebar extends Component {
   constructor(props) {
     super(props);
-    console.log(props.sidebarReducer);
     this.state = {
       showGenres: false,
       showFilters: false,
@@ -75,7 +74,6 @@ class Sidebar extends Component {
   renderFilters = () => {
     if (this.state.showFilters) {
       return this.state.filters.map((filter, i) => {
-        console.log(filter);
         return (
           <li
           onClick={() => {

@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export function getGenres() {
-  console.log('we are here');
   return axios({
     method: 'GET',
     url: 'https://api.themoviedb.org/3/genre/movie/list',

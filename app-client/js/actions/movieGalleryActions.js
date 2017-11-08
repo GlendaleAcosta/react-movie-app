@@ -139,7 +139,6 @@ export function getMoviesByFilter(filter) {
     },
   })
   .then((response) => {
-    console.log(response.data);
     return {
       type: 'GET_MOVIES',
       payload: response.data,

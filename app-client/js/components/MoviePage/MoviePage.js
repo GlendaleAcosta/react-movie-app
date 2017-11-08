@@ -5,42 +5,31 @@ const MoviePage = props => {
   const styles = {
     height: '1000px',
   };
-  const topBg = {
-    height: '625px',
-    width: '100%',
-    backgroundImage: `url('http://image.tmdb.org/t/p/w1280/${props.currentMovie.backdrop_path}`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center center',
-    position: 'relative',
-    zIndex: '1',
-  };
-  const rect = {
-    height: '200px',
-    backgroundColor: '#fff',
-    position: 'absolute',
-    bottom: '-150px',
-    zIndex: '3',
-    width: '120%',
-    transform: 'translate(-10%, -25%) rotate(-2deg)',
+  const topBgImg = {
+    backgroundImage: `url('http://image.tmdb.org/t/p/w1280${props.currentMovie.backdrop_path}`,
   };
 
-  const card = {
-    width: '330px',
-    height: '420px',
-    backgroundColor: 'red',
-    position: 'absolute',
-    bottom: 0,
-    left: '35px',
-    zIndex: '4',
+  const cardImg = {
+    backgroundImage: `url('http://image.tmdb.org/t/p/w342${props.currentMovie.poster_path}`,
   };
 
   const { currentMovie } = props;
+  console.log(currentMovie);
   return (
     <div style={styles}>
-      <div style={topBg}>
-        <h1>{currentMovie.title}</h1>
-        <div style={card} />
-        <div style={rect} />
+      <div style={topBgImg} className="movie-top-bg">
+        <div style={cardImg} className="poster-card" />
+        <div className="movie-rect" />
+        <div className="movie-header-overlay" />
+        <div className="movie-header-black-box" >
+          <div className="row">
+            <div className="col-md-8 offset-md-4 pl-50px">
+              <h1 className="text-white movie-title">{currentMovie.title}</h1>
+              <span className="badge badge-danger">Danger</span>
+              <p className="text-white">{currentMovie.overview}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
