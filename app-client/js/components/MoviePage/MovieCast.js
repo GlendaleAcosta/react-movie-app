@@ -1,6 +1,25 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+const containerStyles = {
+  display: 'flex',
+  paddingRight: '8px',
+  paddingLeft: '10px',
+  alignItems: 'stretch',
+};
+const movieStyle = {
+  width: '25%',
+  boxSizing: 'border-box',
+  padding: '10px',
+};
+
+const titleStyle = {
+  color: '#fff',
+  fontSize: '13px',
+  marginBottom: '5px',
+  marginTop: '5px',
+};
+
 class MovieCast extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +34,6 @@ class MovieCast extends Component {
     if (selectedPage + 1 < castArr.length) {
       this.setState({ selectedPage: selectedPage + 1});
     }
-    console.log(selectedPage);
   }
 
   decrementPage = () => {
@@ -23,24 +41,30 @@ class MovieCast extends Component {
     if (selectedPage - 1 > -1) {
       this.setState({ selectedPage: selectedPage - 1});
     }
-    console.log(selectedPage);
   }
  
   renderMainCast = () => {
-    console.log(this.props);
     const { castArr } = this.props;
     const { selectedPage } = this.state;
     
     return castArr[selectedPage].map((castMember) => {
+      const innerMovieStyle = {
+        backgroundColor: 'maroon',
+        width: '100%',
+        height: '270px',
+        backgroundImage: `url('http://image.tmdb.org/t/p/w185${castMember.profile_path}')`,
+        backgroundSize: 'cover',
+        cursor: 'pointer',
+      };
       return (
-        <div key={castMember.id} className="card col-md-2">
-          <img className="card-img-top"      src="http://image.tmdb.org/t/p/w342/iczG0WVwwifbOTY5JWvBVz9DVaj.jpg"
-            alt="Card image cap" />
-          <div className="card-block">
-            <h4 className="card-title">{castMember.character}</h4>
-            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" className="btn btn-primary">Go somewhere</a>
-          </div>
+        <div key={castMember.id} style={movieStyle}>
+          <div style={innerMovieStyle} />
+          <p style={titleStyle}>
+            Cast: {castMember.character}
+          </p>
+          <p style={titleStyle}>
+            Name: {castMember.name}
+          </p>
         </div>
       )
     });
@@ -48,30 +72,24 @@ class MovieCast extends Component {
 
   render() {
     const { credits } = this.props;
-    this.renderMainCast();
     return (
       <div className="movie-cast-container">
-        <div className="row m-0">
+        <div className="row m-0 " style={containerStyles}>
           <p className="lead text-white col-md-12">Main Cast:</p>
-          <div onClick={this.decrementPage} className="card col-md-2">
-            <div className="card-block">
-              <h4 className="card-title">Card title</h4>
-              <p className="card-text">This is the left Arrow</p>
-              <a href="#" className="btn btn-primary">Go somewhere</a>
-            </div>
+          <div onClick={this.decrementPage} className="cast-pointer" >
+            <i className="material-icons text-white lg-icon">arrow_back</i>
           </div>
+          <div className="cast-carousel-container" style={containerStyles}>
             {this.renderMainCast()} 
-          <div onClick={this.incrementPage} className="card col-md-2">
-            <div className="card-block">
-              <h4 className="card-title">Card title</h4>
-              <p className="card-text">This is the right arrow!</p>
-              <a href="#" className="btn btn-primary">Go somewhere</a>
-            </div>
+          </div>
+          <div onClick={this.incrementPage} className="cast-pointer">
+            <i className="material-icons lg-icon text-white">arrow_forward</i>
           </div>
         </div>
       </div>
     );
   }
+
 }
 
 MovieCast.propTypes = {
