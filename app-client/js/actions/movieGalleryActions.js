@@ -92,6 +92,31 @@ export function getCurrentMovie(movieID) {
   });
 }
 
+export function getCredits(movieID) {
+  return axios({
+    method: 'GET',
+    url: `https://api.themoviedb.org/3/movie/${movieID}/credits`,
+    params: {
+      api_key: process.env.TMDB_KEY,
+    },
+  })
+  .then((response) => {
+    // console.log(response);
+    return {
+      type: 'GET_CREDITS',
+      payload: response.data,
+    };
+  })
+  .catch((error) => {
+    // console.log('jfjfjfjjfjjfjfjf')
+    console.log(error);
+    return {
+      type: 'ERROR',
+      payload: error,
+    };
+  });
+}
+
 export function getSearchResults(movie) {
   return axios({
     method: 'GET',

@@ -1,42 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import MovieHeader from './MovieHeader';
+import MovieCast from './MovieCast';
 
 const MoviePage = props => {
-  const styles = {
-    height: '1000px',
-  };
-  const topBgImg = {
-    backgroundImage: `url('http://image.tmdb.org/t/p/w1280${props.currentMovie.backdrop_path}`,
-  };
+  let castArr = [];
+  let castArr2 = [];
+  if (props.credits) {
+    let j = 0;
+    for (let i = 0; i < props.credits.cast.length; i++, j++) {
+      if (j < 4) {
+        castArr2.push(props.credits.cast[i]);
+      } else {
+        castArr.push(castArr2);
+        j = -1;
+        castArr2 = null;
+        castArr2 = [];
+      }
+    }
+  }
+  if (castArr2 != null) {
+    castArr.push(castArr2);
+  }
 
-  const cardImg = {
-    backgroundImage: `url('http://image.tmdb.org/t/p/w342${props.currentMovie.poster_path}`,
-  };
-
-  const { currentMovie } = props;
-  console.log(currentMovie);
   return (
-    <div style={styles}>
-      <div style={topBgImg} className="movie-top-bg">
-        <div style={cardImg} className="poster-card" />
-        <div className="movie-rect" />
-        <div className="movie-header-overlay" />
-        <div className="movie-header-black-box" >
-          <div className="row">
-            <div className="col-md-8 offset-md-4 pl-50px">
-              <h1 className="text-white movie-title">{currentMovie.title}</h1>
-              <span className="badge badge-danger">Danger</span>
-              <p className="text-white">{currentMovie.overview}</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div>
+      <MovieHeader {...props} />
+      <MovieCast castArr={castArr} {...props} />
     </div>
   );
 };
 
 MoviePage.propTypes = {
   currentMovie: PropTypes.object.isRequired,
+  credits: PropTypes.object.isRequired,
 };
 
 export default MoviePage;

@@ -9,11 +9,13 @@
 
 .movie-rect {
   height: 200px;
-  background-color: #fff;
+  background-color: #171b21;
   position: absolute;
   bottom: -150px;
   z-index: 3;
-  width: 120%;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
 }
 
 .poster-card {
@@ -63,5 +65,16 @@
 
 .badge {
   margin-bottom: 10px;
+}
+
+.movie-bottom-poster {
+  height: 130px;
+  padding-left: 35px;
+}
+
+.movie-bottom-header {
+  height: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 

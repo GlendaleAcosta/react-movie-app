@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getCurrentMovie } from 'actions/movieGalleryActions';
+import { getCurrentMovie, getCredits } from 'actions/movieGalleryActions';
 import MoviePage from 'components/MoviePage/MoviePage';
 
 const styles = {
@@ -14,12 +14,13 @@ class MoviePageContainer extends Component {
     this.state = {};
     const movieID = props.match.params.id;
     props.dispatch(getCurrentMovie(movieID));
+    props.dispatch(getCredits(movieID));
   }
 
   renderMoviePage() {
-    const { currentMovie } = this.props.movieReducer;
+    const { currentMovie, credits } = this.props.movieReducer;
     if (currentMovie !== null) {
-      return <MoviePage currentMovie={currentMovie} />;
+      return <MoviePage currentMovie={currentMovie} credits={credits} />;
     }
     return null;
   }
