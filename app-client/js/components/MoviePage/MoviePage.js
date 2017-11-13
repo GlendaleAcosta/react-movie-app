@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MovieHeader from './MovieHeader';
 import MovieCast from './MovieCast';
+import MovieTrailers from './MovieTrailers';
 
 const MoviePage = props => {
+  console.log(props);
   let castArr = [];
   let castArr2 = [];
   if (props.credits) {
@@ -27,6 +29,9 @@ const MoviePage = props => {
     <div>
       <MovieHeader {...props} />
       <MovieCast castArr={castArr} {...props} />
+      <div className="row">
+        <MovieTrailers {...props} />
+      </div>
     </div>
   );
 };

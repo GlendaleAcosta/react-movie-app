@@ -12,7 +12,7 @@ const Navbar = (props) => {
 
       <div className="collapse navbar-collapse row">
         <SearchbarContainer {...props} />
-        <NavRight />
+        <NavRight {...props} />
       </div>
     </nav>
   );

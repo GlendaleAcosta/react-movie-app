@@ -36,8 +36,6 @@ function mapStateToProps(state) {
     movieReducer: state.movieReducer,
   };
 }
-// function matchDispatchToProps(dispatch) {
-//   return bindActionCreators({ getMovies });
-// }
+
 export default connect(mapStateToProps)(GalleryContainer);
 

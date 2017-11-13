@@ -60,10 +60,10 @@ class MovieCast extends Component {
         <div key={castMember.id} style={movieStyle}>
           <div style={innerMovieStyle} />
           <p style={titleStyle}>
-            Cast: {castMember.character}
+            {castMember.character}
           </p>
           <p style={titleStyle}>
-            Name: {castMember.name}
+            {castMember.name}
           </p>
         </div>
       )
@@ -75,7 +75,7 @@ class MovieCast extends Component {
     return (
       <div className="movie-cast-container">
         <div className="row m-0 " style={containerStyles}>
-          <p className="lead text-white col-md-12">Main Cast:</p>
+          <p className="lead text-white col-md-12 cast-title">Main Cast:</p>
           <div onClick={this.decrementPage} className="cast-pointer" >
             <i className="material-icons text-white lg-icon">arrow_back</i>
           </div>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from 'components/Navbar/Navbar';
+import { connect } from 'react-redux';
 
 class NavbarContainer extends Component {
   constructor(props) {
@@ -26,4 +27,10 @@ class NavbarContainer extends Component {
   }
 }
 
-export default NavbarContainer;
+function mapStateToProps(state) {
+  return {
+    modalReducer: state.modalReducer,
+  };
+}
+
+export default connect(mapStateToProps)(NavbarContainer);
